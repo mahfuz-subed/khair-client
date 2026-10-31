@@ -9,8 +9,6 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ChevronDown } from "lucide-react";
 import {
   Popover,
@@ -21,6 +19,9 @@ import {
 const Nav = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
+  const handleLogout = () => {
+    authClient.signOut();
+  };
   return (
     <div>
       <div className="w-[80%] mx-auto flex justify-between items-center my-3">
@@ -49,26 +50,29 @@ const Nav = () => {
         </div>
         <div>
           {user ? (
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <Popover>
                 <PopoverTrigger
                   render={
-                    <Button
-                      variant="outline"
-                      className="group flex h-auto items-center gap-2 rounded-full border-[#1E2A56]/20 bg-[#f5f0ea] px-2 py-2 text-[#1E2A56] transition-all duration-300 hover:bg-[#1E2A56]/10 hover:shadow-md"
-                    >
-                      <Avatar>
-                        <AvatarImage
-                          src={user.image as string}
-                          alt="user image"
-                        />
-                        <AvatarFallback>{user.name[0]}</AvatarFallback>
-                        <AvatarBadge className="bg-green-600 dark:bg-green-800" />
-                      </Avatar>
+                    <Button className="group flex items-center  bg-transparent px-1 py-5 text-[#1E2A56] hover:shadow-sm hover:bg-transparent">
+                      <div className="flex flex-col items-center mt-4">
+                        <Avatar>
+                          <AvatarImage
+                            src={user.image as string}
+                            alt="user image"
+                          />
+                          <AvatarFallback>{user.name[0]}</AvatarFallback>
+                          <AvatarBadge className="bg-green-600 dark:bg-green-800" />
+                        </Avatar>
+
+                        <p className="opacity-0 group-hover:opacity-100">
+                          {user.name}
+                        </p>
+                      </div>
 
                       <ChevronDown
                         size={18}
-                        className="transition-transform duration-300 group-hover:translate-y-0.5"
+                        className=" transition-transform duration-300 group-hover:translate-y-0.5"
                       />
                     </Button>
                   }
@@ -94,20 +98,21 @@ const Nav = () => {
                       href="#"
                       className="rounded-lg px-3 py-2 text-sm font-medium text-[#1E2A56] transition-colors duration-200 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                     >
-                      Manage event
+                      Manage events
                     </Link>
 
                     <Link
                       href="#"
                       className="rounded-lg px-3 py-2 text-sm font-medium text-[#1E2A56] transition-colors duration-200 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                     >
-                      Join event
+                      Joined events
                     </Link>
                   </div>
                 </PopoverContent>
               </Popover>
 
               <Link
+                onClick={handleLogout}
                 href="/sign-in"
                 className="inline-block bg-[#1E2A56] text-[#f5f0ea] py-1 px-4 rounded-lg transition duration-300 hover:bg-[#f5f0ea] hover:text-[#1E2A56] hover:scale-105 hover:shadow-lg"
               >

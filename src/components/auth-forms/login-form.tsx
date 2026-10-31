@@ -1,5 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,17 +13,13 @@ import {
   FieldDescription,
   FieldGroup,
   FieldLabel,
-  FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
-import { toast } from "../ui/toast";
+import { toast } from "react-hot-toast";
 
-export function LoginForm({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export function LoginForm({}: React.ComponentProps<"div">) {
   const router = useRouter();
   const handleLogin = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
@@ -34,17 +29,23 @@ export function LoginForm({
       password: string;
     };
 
-    const { data, error } = await authClient.signIn.email({
+    const result = await authClient.signIn.email({
       ...userData,
     });
+    const { data, error } = result;
 
     if (data) {
-      console.log(data);
+      toast.success("Your registration was successful.");
       router.push("/");
     }
     if (error) {
-      toast.add({ type: "error", description: "Invalid email or password." });
+      toast.error("Invalid email or password.");
     }
+  };
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div className="flex flex-col gap-6">
@@ -103,6 +104,7 @@ export function LoginForm({
                 </Button>
 
                 <Button
+                  onClick={handleGoogleSignIn}
                   variant="outline"
                   type="button"
                   className="w-full border-[#1E2A56] text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"

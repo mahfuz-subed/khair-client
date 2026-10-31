@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { toast } from "../ui/toast";
+import { toast } from "react-hot-toast";
 import Link from "next/link";
 
 export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
@@ -26,6 +26,16 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   const handleSignUp = async (e: React.SubmitEvent<HTMLElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+    const password = formData.get("password") as string;
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long.");
+    }
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must include a lowercase letter.");
+    }
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must include an uppercase letter.");
+    }
     const userData = Object.fromEntries(formData.entries()) as {
       name: string;
       email: string;
@@ -37,21 +47,19 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
       ...userData,
     });
     if (data) {
-      console.log(data);
-      toast.add({
-        type: "success",
-        description: "Your registration was successful.",
-      });
+      toast.success("Your registration was successful.");
       router.push("/");
     }
     if (error) {
-      console.log(error);
-      toast.add({
-        type: "error",
-        description:
-          "Unable to create your account. Please check your information and try again.",
-      });
+      toast.error(
+        "Unable to create your account. Please check your information and try again.",
+      );
     }
+  };
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
 
   return (
@@ -120,10 +128,12 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 type="password"
                 placeholder="Enter your password"
                 required
+                minLength={6}
                 className="border-[#1E2A56] text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56]"
               />
               <FieldDescription className="text-[#1E2A56]/75">
-                Must be at least 8 characters long.
+                Must be at least 6 characters, with one uppercase and one
+                lowercase letter.
               </FieldDescription>
             </Field>
 
@@ -137,10 +147,11 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
 
               <Field>
                 <FieldSeparator className="text-[#1E2A56] my-1">
-                  Or continue with
+                  Or
                 </FieldSeparator>
 
                 <Button
+                  onClick={handleGoogleSignIn}
                   variant="outline"
                   type="button"
                   className="w-full border-[#1E2A56] text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
