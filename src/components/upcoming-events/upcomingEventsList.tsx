@@ -4,9 +4,11 @@ import { Button } from "@base-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { ChangeEvent } from "react";
+
 const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  const [value, setValue] = useState(" ");
   const categories = ["All"];
   data.forEach((dt: EventItem) => {
     if (!categories.includes(dt.category)) {
@@ -18,8 +20,26 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
       ? data
       : data.filter((dt: EventItem) => dt.category === selectedCategory);
 
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    const { target } = event;
+    setValue(target.value);
+  };
+  const searchedData = filteredData.filter(
+    (sd: EventItem) =>
+      sd.title.toLowerCase().includes(value.toLowerCase()) ||
+      sd.category.toLowerCase().includes(value.toLowerCase()),
+  );
   return (
     <div>
+      <div className="flex justify-center items-center">
+        <input
+          type={"search"}
+          name={"search"}
+          placeholder={"Search events or categories"}
+          className="mb-6 h-12 w-full border border-[#1E2A56] bg-white px-4 text-[#1E2A56]"
+          onChange={handleSearch}
+        />
+      </div>
       <div>
         {categories.map((category) => (
           <Button
@@ -35,7 +55,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
           </Button>
         ))}
       </div>
-      {filteredData.map((fd: EventItem) => (
+      {searchedData.map((fd: EventItem) => (
         <div
           key={fd._id}
           className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 text-[#1E2A56] sm:p-6"
