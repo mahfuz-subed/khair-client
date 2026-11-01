@@ -34,7 +34,7 @@ const Nav = () => {
               height={50}
             ></Image>
             <h2 className="font-bold sm:text-md md:text-2xl text-[#1E2A56]">
-              KHAIR
+              <Link href="/">KHAIR</Link>
             </h2>
           </div>
           <div className="text-[12px] md:text-base">

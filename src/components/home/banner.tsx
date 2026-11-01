@@ -3,12 +3,10 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div className='bg-[url("/banner.jpg")] bg-cover bg-center bg-no-repeat min-h-screen'>
-      {/* Dark overlay */}
       <div className="bg-[#1E2A56]/60 min-h-screen flex items-center">
-        {/* Banner content */}
         <div className="max-w-7xl mx-auto w-full px-6 py-20">
           <h2 className="text-4xl md:text-6xl font-bold text-[#f5f0ea] leading-tight max-w-3xl">
-            Goodness Begins When We Come{" "}
+            Goodness Begins When We Come
             <span className="bg-[#f5f0ea] text-[#1E2A56] px-2">Together.</span>
           </h2>
 
@@ -17,7 +15,6 @@ const Banner = () => {
             something good. Together, we can make a difference.
           </p>
 
-          {/* Buttons */}
           <div className="flex items-center gap-6 mt-10">
             <Link
               href="#events"

@@ -8,9 +8,9 @@ const Features = () => {
         "Explore community events around Bangladesh, from food distribution to Eid clothing campaigns.",
       image: "/feature/meaningful.jpg",
       alt: "Volunteers handing out iftar packets",
-      background: "bg-[#1E2A56]", // navy
-      textColor: "text-[#f5f0ea]", // cream
-      width: "lg:col-span-2", // takes 2 of 6 columns (3 cards per row)
+      background: "bg-[#1E2A56]",
+      textColor: "text-[#f5f0ea]",
+      width: "lg:col-span-2",
     },
     {
       title: "Create Your Own Event",
@@ -19,7 +19,7 @@ const Features = () => {
       image: "/feature/create.jpg",
       alt: "A young organizer planning an event",
       background: "bg-white",
-      textColor: "text-[#1E2A56]", // navy
+      textColor: "text-[#1E2A56]",
       width: "lg:col-span-2",
     },
     {

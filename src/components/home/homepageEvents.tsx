@@ -15,6 +15,7 @@ const HomepageEvents = async () => {
   const data = await res.json();
 
   const events: EventItem[] = data;
+
   return (
     <div>
       <section className="bg-white px-6 py-14 sm:py-20">
