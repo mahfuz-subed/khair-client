@@ -1,12 +1,13 @@
 import Banner from "@/components/home/banner";
 import Features from "@/components/home/features";
-import UpcomingEvents from "@/components/home/upcomingEvents";
+import HomepageEvents from "@/components/home/homepageEvents";
+
 export default function Home() {
   return (
     <div>
       <Banner />
       <Features />
-      <UpcomingEvents />
+      <HomepageEvents />
     </div>
   );
 }

@@ -10,17 +10,11 @@ interface EventItem {
   organizer: string;
 }
 
-const UpcomingEvents = async () => {
+const HomepageEvents = async () => {
   const res = await fetch(`http://localhost:5000/events`);
   const data = await res.json();
-  console.log("data", data.eventData);
-  const today = new Date();
-  console.log(today);
-  const upComingEvents = data.filter(
-    (e: EventItem) => new Date(e.eventDate) > today,
-  );
-  console.log("upcoming", upComingEvents);
-  const events: EventItem[] = upComingEvents.slice(0, 6);
+
+  const events: EventItem[] = data;
   return (
     <div>
       <section className="bg-white px-6 py-14 sm:py-20">
@@ -86,7 +80,7 @@ const UpcomingEvents = async () => {
 
                   <div className="mt-auto pt-6">
                     <Link
-                      href={`/events/${event._id}`}
+                      href={`/eventDetails/${event._id}`}
                       className="inline-block bg-[#1E2A56] px-6 py-3 font-semibold text-[#f5f0ea] hover:bg-[#16204a]"
                     >
                       View Details
@@ -111,4 +105,4 @@ const UpcomingEvents = async () => {
   );
 };
 
-export default UpcomingEvents;
+export default HomepageEvents;
