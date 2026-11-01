@@ -4,18 +4,22 @@ interface EventItem {
   _id: string;
   title: string;
   description: string;
-  date: string;
+  eventDate: string;
   location: string;
   imageUrl: string;
+  organizer: string;
 }
 
 const UpcomingEvents = async () => {
   const res = await fetch(`http://localhost:5000/events`);
   const data = await res.json();
+  console.log("data", data.eventData);
   const today = new Date();
+  console.log(today);
   const upComingEvents = data.filter(
-    (e: string) => new Date(data.eventDate) > today,
+    (e: EventItem) => new Date(e.eventDate) > today,
   );
+  console.log("upcoming", upComingEvents);
   const events: EventItem[] = upComingEvents.slice(0, 6);
   return (
     <div>
@@ -57,12 +61,18 @@ const UpcomingEvents = async () => {
                     />
                   )}
 
+                  {event.organizer && (
+                    <span className="mt-4 inline-block bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea]">
+                      Organized by {event.organizer}
+                    </span>
+                  )}
+
                   <h3 className="mt-4 text-lg font-bold sm:text-xl">
                     {event.title}
                   </h3>
 
                   <p className="mt-2 text-sm font-semibold">
-                    {new Date(event.date).toLocaleDateString("en-GB", {
+                    {new Date(event.eventDate).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
