@@ -17,14 +17,14 @@ const Banner = () => {
 
           <div className="flex items-center gap-6 mt-10">
             <Link
-              href="#events"
+              href="/upcoming-events"
               className="bg-[#f5f0ea] text-[#1E2A56] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea] hover:-translate-y-1"
             >
               Explore Events
             </Link>
 
             <Link
-              href="#create-event"
+              href="/create-event"
               className="border border-[#f5f0ea] text-[#f5f0ea] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#f5f0ea] hover:text-[#1E2A56] hover:-translate-y-1"
             >
               Create an Event
