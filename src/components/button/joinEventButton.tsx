@@ -1,43 +1,39 @@
 "use client";
 
+import { EventItem } from "@/app/upcoming-events/page";
+import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
-const JoinEventButton = ({ eventId }: { eventId: string }) => {
-  //   const [loading, setLoading] = useState(false); // true while we wait for the server
-  const [joined, setJoined] = useState(false); // true after a successful join
-  //   const [message, setMessage] = useState(""); // text shown under the button
+const JoinEventButton = ({ event }: { event: EventItem }) => {
+  const [joined, setJoined] = useState(false);
+  const { data: session } = authClient.useSession();
+  const email = session?.user?.email;
+  console.log(email);
+  const eventData = {
+    ...event,
+    createdBy: email,
+  };
+  console.log(eventData);
 
-  // This function runs when the button is clicked.
   const handleJoin = async () => {
-    // setLoading(true);
-    // setMessage("");
-
-    // try {
-    //   // IMPORTANT: this URL is my guess. Change it to match the
-    //   // "join" route in your backend.
-    //   const res = await fetch(`http://localhost:5000/event/${eventId}/join`, {
-    //     method: "POST",
-    //   });
-
-    //   if (res.ok) {
-    //     setJoined(true);
-    //     setMessage("You have joined this event. Thank you!");
-    //   } else {
-    //     setMessage("Sorry, we could not add you. Please try again.");
-    //   }
-    // } catch (error) {
-    //   // This runs if the server could not be reached at all
-    //   setMessage("Something went wrong. Please check your connection.");
-    // }
-
-    // setLoading(false);
+    const res = await fetch(`http://localhost:5000/joined-events`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(eventData),
+    });
+    const joinedEventData = await res.json();
+    console.log("joined", joinedEventData);
+    if (joinedEventData.acknowledged) {
+      toast.success("Your successfully joined the event.");
+    }
     setJoined(true);
   };
 
   return (
     <div>
-      {/* This button is styled for a navy background:
-          cream button with navy text, like "Explore Events" in your banner */}
       <button
         onClick={handleJoin}
         disabled={joined}

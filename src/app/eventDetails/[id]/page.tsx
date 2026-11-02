@@ -9,6 +9,7 @@ type EventItem = {
   location: string;
   imageUrl: string;
   organizer: string;
+  category: string;
 };
 
 const EventDetailsPage = async ({
@@ -23,13 +24,6 @@ const EventDetailsPage = async ({
   return (
     <section className="bg-[#f5f0ea] px-6 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <Link
-          href="/events"
-          className="inline-block border border-[#1E2A56] px-6 py-3 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
-        >
-          Back to Events
-        </Link>
-
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
           <div className="lg:col-span-2">
             {event.imageUrl && (
@@ -77,7 +71,7 @@ const EventDetailsPage = async ({
             )}
 
             <div className="mt-8">
-              <JoinEventButton eventId={event._id} />
+              <JoinEventButton event={event} />
             </div>
           </div>
         </div>
