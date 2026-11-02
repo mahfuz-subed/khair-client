@@ -10,7 +10,7 @@ export interface EventItem {
   category: string;
 }
 const UpcomingEvents = async () => {
-  const res = await fetch(`http://localhost:5000/upcoming-events`);
+  const res = await fetch(`https://khair-server.vercel.app/upcoming-events`);
   const data = await res.json();
 
   return (

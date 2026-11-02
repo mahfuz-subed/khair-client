@@ -18,7 +18,7 @@ const EventDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const res = await fetch(`http://localhost:5000/event/${id}`);
+  const res = await fetch(`https://khair-server.vercel.app/event/${id}`);
   const data = await res.json();
   const event: EventItem = data;
   return (

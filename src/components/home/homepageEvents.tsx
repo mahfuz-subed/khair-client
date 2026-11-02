@@ -11,7 +11,7 @@ interface EventItem {
 }
 
 const HomepageEvents = async () => {
-  const res = await fetch(`http://localhost:5000/events`);
+  const res = await fetch(`https://khair-server.vercel.app/events`);
   const data = await res.json();
 
   const events: EventItem[] = data;

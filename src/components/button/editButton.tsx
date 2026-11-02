@@ -74,13 +74,16 @@ const EditButton = ({ fd }: { fd: IEvent }) => {
       createdBy: user?.email,
     };
 
-    const res = await fetch(`http://localhost:5000/my-events/${fd._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
+    const res = await fetch(
+      `https://khair-server.vercel.app/my-events/${fd._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(eventData),
       },
-      body: JSON.stringify(eventData),
-    });
+    );
     const newEventData = await res.json();
     if (newEventData.acknowledged) {
       toast.success("Updated data successfully");

@@ -28,9 +28,12 @@ import { useRouter } from "next/navigation";
 const DeleteButton = ({ fd }: { fd: IEvent }) => {
   const router = useRouter();
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:5000/my-events/${fd._id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://khair-server.vercel.app/my-events/${fd._id}`,
+      {
+        method: "DELETE",
+      },
+    );
     const data = await res.json();
     console.log(data);
     if (data.acknowledged) {

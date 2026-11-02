@@ -17,7 +17,7 @@ const JoinEventButton = ({ event }: { event: EventItem }) => {
   console.log(eventData);
 
   const handleJoin = async () => {
-    const res = await fetch(`http://localhost:5000/joined-events`, {
+    const res = await fetch(`https://khair-server.vercel.app/joined-events`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

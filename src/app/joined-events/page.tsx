@@ -20,7 +20,9 @@ const JoinedEventsPage = async () => {
   });
 
   const email = session?.user?.email;
-  const res = await fetch(`http://localhost:5000/my-joined-events/${email}`);
+  const res = await fetch(
+    `https://khair-server.vercel.app/my-joined-events/${email}`,
+  );
   const data = await res.json();
   return (
     <div className="min-h-screen bg-[#f5f0ea] px-4 py-12 text-[#1E2A56] sm:px-8">
