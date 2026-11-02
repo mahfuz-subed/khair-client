@@ -35,7 +35,7 @@ export function LoginForm({}: React.ComponentProps<"div">) {
     const { data, error } = result;
 
     if (data) {
-      toast.success("Your registration was successful.");
+      toast.success("Your login was successful.");
       router.push("/");
     }
     if (error) {

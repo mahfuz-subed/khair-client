@@ -88,21 +88,21 @@ const Nav = () => {
 
                   <div className="flex flex-col gap-1">
                     <Link
-                      href="#"
+                      href="/create-event"
                       className="rounded-lg px-3 py-2 text-sm font-medium text-[#1E2A56] transition-colors duration-200 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                     >
                       Create event
                     </Link>
 
                     <Link
-                      href="#"
+                      href="/manage-events"
                       className="rounded-lg px-3 py-2 text-sm font-medium text-[#1E2A56] transition-colors duration-200 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                     >
                       Manage events
                     </Link>
 
                     <Link
-                      href="#"
+                      href="/joined-events"
                       className="rounded-lg px-3 py-2 text-sm font-medium text-[#1E2A56] transition-colors duration-200 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                     >
                       Joined events
