@@ -17,6 +17,15 @@ const ManageEvents = async () => {
   console.log(eventData);
   return (
     <div>
+      <div className="mx-auto mt-12 w-[90%] text-center text-[#1E2A56]">
+        <h1 className="text-3xl font-bold sm:text-4xl">Manage Your Events</h1>
+
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed opacity-75 sm:text-base">
+          Every meaningful initiative starts with an idea. Manage the events
+          you've created, update their details, and continue spreading goodness.
+        </p>
+      </div>
+
       <div className="mx-auto mt-10 grid w-[90%] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {eventData.map((fd: EventItem) => (
           <div
