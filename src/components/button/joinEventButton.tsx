@@ -34,13 +34,24 @@ const JoinEventButton = ({ event }: { event: EventItem }) => {
 
   return (
     <div>
-      <button
-        onClick={handleJoin}
-        disabled={joined}
-        className="pointer-cursor w-full bg-[#f5f0ea] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
-      >
-        {joined ? "Joined" : "Join Event"}
-      </button>
+      {!session?.user ? (
+        <div>
+          <button
+            disabled={true}
+            className="pointer-cursor w-full bg-[#f5f0ea] px-8 py-4 font-semibold text-[#1E2A56] cursor-not-allowed opacity-60"
+          >
+            Join Event <small> (Log in to join this event)</small>
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={handleJoin}
+          disabled={joined}
+          className="pointer-cursor w-full bg-[#f5f0ea] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {joined ? "Joined" : "Join Event"}
+        </button>
+      )}
     </div>
   );
 };
