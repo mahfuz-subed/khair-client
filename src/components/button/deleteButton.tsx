@@ -23,7 +23,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { router } from "better-auth/api";
 import { useRouter } from "next/navigation";
 
 const DeleteButton = ({ fd }: { fd: IEvent }) => {
@@ -42,20 +41,35 @@ const DeleteButton = ({ fd }: { fd: IEvent }) => {
   return (
     <div>
       <AlertDialog>
-        <AlertDialogTrigger render={<button />}>Delete</AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogTrigger
+          render={
+            <button className="border border-red-700 bg-transparent px-5 py-3 text-sm font-semibold text-red-700 transition-colors hover:bg-red-700 hover:text-white" />
+          }
+        >
+          Delete
+        </AlertDialogTrigger>
+
+        <AlertDialogContent className="border border-[#1E2A56] bg-[#f5f0ea] text-[#1E2A56]">
           <AlertDialogHeader>
-            <AlertDialogTitle>
+            <AlertDialogTitle className="text-xl font-bold">
               Are you sure you want to delete this?
             </AlertDialogTitle>
-            <AlertDialogDescription>
+
+            <AlertDialogDescription className="text-[#1E2A56]/70">
               This action cannot be undone. This will permanently delete your
               event.
             </AlertDialogDescription>
           </AlertDialogHeader>
+
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>
+            <AlertDialogCancel className="border border-[#1E2A56] bg-transparent text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea]">
+              Cancel
+            </AlertDialogCancel>
+
+            <AlertDialogAction
+              onClick={handleDelete}
+              className="bg-red-700 text-white hover:bg-red-800"
+            >
               Continue
             </AlertDialogAction>
           </AlertDialogFooter>

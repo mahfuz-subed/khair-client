@@ -17,11 +17,11 @@ const ManageEvents = async () => {
   console.log(eventData);
   return (
     <div>
-      <div>
+      <div className="mx-auto mt-10 grid w-[90%] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {eventData.map((fd: EventItem) => (
           <div
             key={fd._id}
-            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 text-[#1E2A56] sm:p-6"
+            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-3 text-[#1E2A56]"
           >
             {fd.imageUrl && (
               <Image
@@ -29,42 +29,44 @@ const ManageEvents = async () => {
                 alt={fd.title}
                 width={800}
                 height={500}
-                className="h-40 w-full object-cover sm:h-48"
+                className="h-40 w-full object-cover"
               />
             )}
 
             {fd.organizer && (
-              <span className="mt-4 inline-block self-start bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea]">
+              <span className="mt-3 inline-block self-start bg-[#1E2A56] px-3 py-1.5 text-xs font-semibold text-[#f5f0ea]">
                 Organized by {fd.organizer}
               </span>
             )}
 
-            <h3 className="mt-3 text-lg font-bold sm:text-xl">{fd.title}</h3>
+            <h3 className="mt-3 text-lg font-bold">{fd.title}</h3>
 
-            <p className="mt-2 text-sm font-semibold">
-              {new Date(fd.eventDate).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
-            <p className="text-sm font-semibold">{fd.location}</p>
+            <div className="mt-2 space-y-1 text-sm font-semibold">
+              <p>
+                {new Date(fd.eventDate).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+              <p>{fd.location}</p>
+            </div>
 
-            <p className="mt-3 line-clamp-3 text-sm leading-relaxed opacity-80">
+            <p className="mt-3 line-clamp-2 text-sm leading-relaxed opacity-80">
               {fd.description}
             </p>
 
-            <div className="mt-auto pt-6">
+            <div className="mt-5 flex flex-wrap items-center gap-2">
               <Link
                 href={`/eventDetails/${fd._id}`}
-                className="inline-block bg-[#1E2A56] px-6 py-3 font-semibold text-[#f5f0ea] hover:bg-[#16204a]"
+                className="bg-[#1E2A56] px-4 py-2.5 text-sm font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72]"
               >
                 View Details
               </Link>
-            </div>
 
-            <EditButton fd={fd} />
-            <DeleteButton fd={fd} />
+              <EditButton fd={fd} />
+              <DeleteButton fd={fd} />
+            </div>
           </div>
         ))}
       </div>
