@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { ChangeEvent } from "react";
+import CreateEventButtton from "../button/createEvent";
 
 const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -40,6 +41,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
           onChange={handleSearch}
         />
       </div>
+      <CreateEventButtton />
       <div>
         {categories.map((category) => (
           <Button
