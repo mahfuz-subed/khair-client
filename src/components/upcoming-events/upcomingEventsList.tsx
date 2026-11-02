@@ -93,7 +93,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
 
           <div className="mt-auto pt-6">
             <Link
-              href={`/events/${fd._id}`}
+              href={`/eventDetails/${fd._id}`}
               className="inline-block bg-[#1E2A56] px-6 py-3 font-semibold text-[#f5f0ea] hover:bg-[#16204a]"
             >
               View Details

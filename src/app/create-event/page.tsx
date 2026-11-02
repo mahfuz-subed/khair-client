@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -21,6 +23,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const eventTypes = [
   { label: "Select Type", value: null },
@@ -35,71 +40,44 @@ const eventTypes = [
   { label: "Community Gathering", value: "Community Gathering" },
 ];
 
-const days = [
-  { label: "DD", value: null },
-  { label: "01", value: "01" },
-  { label: "02", value: "02" },
-  { label: "03", value: "03" },
-  { label: "04", value: "04" },
-  { label: "05", value: "05" },
-  { label: "06", value: "06" },
-  { label: "07", value: "07" },
-  { label: "08", value: "08" },
-  { label: "09", value: "09" },
-  { label: "10", value: "10" },
-  { label: "11", value: "11" },
-  { label: "12", value: "12" },
-  { label: "13", value: "13" },
-  { label: "14", value: "14" },
-  { label: "15", value: "15" },
-  { label: "16", value: "16" },
-  { label: "17", value: "17" },
-  { label: "18", value: "18" },
-  { label: "19", value: "19" },
-  { label: "20", value: "20" },
-  { label: "21", value: "21" },
-  { label: "22", value: "22" },
-  { label: "23", value: "23" },
-  { label: "24", value: "24" },
-  { label: "25", value: "25" },
-  { label: "26", value: "26" },
-  { label: "27", value: "27" },
-  { label: "28", value: "28" },
-  { label: "29", value: "29" },
-  { label: "30", value: "30" },
-  { label: "31", value: "31" },
-];
-
-const months = [
-  { label: "MM", value: null },
-  { label: "01", value: "01" },
-  { label: "02", value: "02" },
-  { label: "03", value: "03" },
-  { label: "04", value: "04" },
-  { label: "05", value: "05" },
-  { label: "06", value: "06" },
-  { label: "07", value: "07" },
-  { label: "08", value: "08" },
-  { label: "09", value: "09" },
-  { label: "10", value: "10" },
-  { label: "11", value: "11" },
-  { label: "12", value: "12" },
-];
-const years = [
-  { label: "YYYY", value: null },
-  { label: "2024", value: "2024" },
-  { label: "2025", value: "2025" },
-  { label: "2026", value: "2026" },
-  { label: "2027", value: "2027" },
-  { label: "2028", value: "2028" },
-  { label: "2029", value: "2029" },
-];
-
 const CreateEventsPage = () => {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+  console.log("user from create", user?.email);
+  const router = useRouter();
+  const today = new Date().toLocaleDateString("en-CA");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const eventData = {
+      ...data,
+      createdBy: user?.email,
+    };
+    const res = await fetch(`http://localhost:5000/add-event`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(eventData),
+      cache: "no-store",
+    });
+    console.log("event", eventData);
+    const newEventData = await res.json();
+    if (newEventData.acknowledged) {
+      toast.success("Your event has been successfully created.");
+      router.push("/upcoming-events");
+    } else {
+      toast.error("Submit the form correctly.");
+    }
+
+    console.log("result", newEventData);
+  };
   return (
     <div>
       <div className="w-full max-w-md text-black">
-        <form>
+        <form onSubmit={handleSubmit}>
           <FieldGroup>
             <FieldSet>
               <FieldLegend>Payment Method</FieldLegend>
@@ -118,20 +96,16 @@ const CreateEventsPage = () => {
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="location">Location / Venue</FieldLabel>
-                  <Input id="location" placeholder="e.g. Sylhet" required />
-                </Field>
-                <Field>
-                  <FieldLabel htmlFor="image">Image (url)</FieldLabel>
                   <Input
-                    id="image"
-                    type="url"
-                    placeholder="paste the image url for thumbnail"
+                    id="location"
+                    name="location"
+                    placeholder="e.g. Sylhet"
                     required
                   />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor="category">Event Type</FieldLabel>
-                  <Select items={eventTypes}>
+                  <Select items={eventTypes} name="category">
                     <SelectTrigger id="category">
                       <SelectValue />
                     </SelectTrigger>
@@ -150,7 +124,67 @@ const CreateEventsPage = () => {
                     </SelectContent>
                   </Select>
                 </Field>
-                <div className="grid grid-cols-3 gap-4">
+                <Field>
+                  <FieldLabel htmlFor="imageUrl">Image (url)</FieldLabel>
+                  <Input
+                    id="imageUrl"
+                    name="imageUrl"
+                    type="url"
+                    placeholder="paste the image url for thumbnail"
+                    required
+                  />
+                </Field>
+
+                <FieldLabel htmlFor="organizer">Organizer</FieldLabel>
+                <Input
+                  id="organizer"
+                  name="organizer"
+                  type="text"
+                  required
+                  className=""
+                />
+
+                <div>
+                  <FieldLabel htmlFor="eventDate">Event Date</FieldLabel>
+                  <Input
+                    id="eventDate"
+                    name="eventDate"
+                    type="date"
+                    min={today}
+                    required
+                    color-scheme="dark"
+                  />
+                </div>
+              </FieldGroup>
+            </FieldSet>
+            <FieldSeparator />
+            <FieldSet>
+              <Field>
+                <FieldLabel htmlFor="description">Description</FieldLabel>
+                <Textarea
+                  id="description"
+                  placeholder="Explain in details about the event."
+                  name="description"
+                  className="resize-none"
+                />
+              </Field>
+            </FieldSet>
+            <Field orientation="horizontal">
+              <Button type="submit">Submit</Button>
+              <Button variant="outline" type="button">
+                Cancel
+              </Button>
+            </Field>
+          </FieldGroup>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default CreateEventsPage;
+{
+  /* <div className="grid grid-cols-3 gap-4">
                   <Field>
                     <FieldLabel htmlFor="days">Days</FieldLabel>
                     <Select items={days}>
@@ -202,31 +236,5 @@ const CreateEventsPage = () => {
                       </SelectContent>
                     </Select>
                   </Field>
-                </div>
-              </FieldGroup>
-            </FieldSet>
-            <FieldSeparator />
-            <FieldSet>
-              <Field>
-                <FieldLabel htmlFor="description">Description</FieldLabel>
-                <Textarea
-                  id="description"
-                  placeholder="Explain in details about the event."
-                  className="resize-none"
-                />
-              </Field>
-            </FieldSet>
-            <Field orientation="horizontal">
-              <Button type="submit">Submit</Button>
-              <Button variant="outline" type="button">
-                Cancel
-              </Button>
-            </Field>
-          </FieldGroup>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default CreateEventsPage;
+                </div> */
+}

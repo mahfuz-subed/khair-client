@@ -19,6 +19,7 @@ import {
 const Nav = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
+
   const handleLogout = () => {
     authClient.signOut();
   };
