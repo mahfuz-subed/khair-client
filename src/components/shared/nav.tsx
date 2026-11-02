@@ -9,7 +9,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -41,9 +41,10 @@ const Nav = () => {
 
           <Link
             href="/upcoming-events"
-            className="text-sm font-medium text-[#1E2A56] underline-offset-4 hover:underline md:text-base"
+            className="inline-flex items-center gap-3 border border-[#1E2A56] px-6 py-3 text-sm font-semibold text-[#1E2A56] transition-colors hover:bg-[#1E2A56] hover:text-[#f5f0ea] md:text-base"
           >
-            Upcoming Events
+            <span>Explore Upcoming Events</span>
+            <ArrowRight size={18} />
           </Link>
         </div>
 

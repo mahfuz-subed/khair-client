@@ -94,7 +94,7 @@ const HomepageEvents = async () => {
 
           <div className="mt-10">
             <Link
-              href="/events"
+              href="/upcoming-events"
               className="inline-block border border-[#1E2A56] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
             >
               View All Events
