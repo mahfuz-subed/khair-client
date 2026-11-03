@@ -3,11 +3,13 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <div className='bg-[url("/banner.jpg")] bg-cover bg-center bg-no-repeat min-h-screen'>
-      <div className="bg-[#1E2A56]/60 min-h-screen flex items-center">
+      <div className="bg-[#1E2A56]/60 dark:bg-[#171923]/75 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto w-full px-6 py-20">
           <h2 className="text-4xl md:text-6xl font-bold text-[#f5f0ea] leading-tight max-w-3xl">
             Goodness Begins When We Come
-            <span className="bg-[#f5f0ea] text-[#1E2A56] px-2">Together.</span>
+            <span className="bg-[#f5f0ea] text-[#1E2A56] dark:bg-[#222630] dark:text-[#f5f0ea] px-2">
+              Together.
+            </span>
           </h2>
 
           <p className="text-lg md:text-xl text-[#f5f0ea] mt-6 max-w-2xl leading-relaxed">
@@ -18,14 +20,14 @@ const Banner = () => {
           <div className="flex items-center gap-6 mt-10">
             <Link
               href="/upcoming-events"
-              className="bg-[#f5f0ea] text-[#1E2A56] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea] hover:-translate-y-1"
+              className="bg-[#f5f0ea] text-[#1E2A56] dark:bg-[#222630] dark:text-[#f5f0ea] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923] hover:-translate-y-1"
             >
               Explore Events
             </Link>
 
             <Link
               href="/create-event"
-              className="border border-[#f5f0ea] text-[#f5f0ea] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#f5f0ea] hover:text-[#1E2A56] hover:-translate-y-1"
+              className="border border-[#f5f0ea] text-[#f5f0ea] px-8 py-5 font-semibold transition-all duration-300 hover:bg-[#f5f0ea] hover:text-[#1E2A56] dark:hover:bg-[#222630] dark:hover:text-[#f5f0ea] hover:-translate-y-1"
             >
               Create an Event
             </Link>

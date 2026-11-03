@@ -55,17 +55,17 @@ const Features = () => {
   ];
   return (
     <div>
-      <section className="bg-[#f5f0ea] px-6 py-20">
+      <section className="bg-[#f5f0ea] px-6 py-20 dark:bg-[#171923]">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
-            <h2 className="text-4xl font-bold text-[#1E2A56] sm:text-5xl">
+            <h2 className="text-4xl font-bold text-[#1E2A56] dark:text-[#f5f0ea] sm:text-5xl">
               Make This Ramadan Count
-              <span className="inline-block bg-[#1E2A56] px-2 text-[#f5f0ea]">
+              <span className="inline-block bg-[#1E2A56] px-2 text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]">
                 Together.
               </span>
             </h2>
 
-            <p className="mt-6 text-lg leading-relaxed text-[#1E2A56]/80">
+            <p className="mt-6 text-lg leading-relaxed text-[#1E2A56]/80 dark:text-[#f5f0ea]/80">
               From iftar tables to Eid clothes drives, find a cause near you,
               start one of your own, and join the people across Bangladesh who
               turn good intentions into shared good deeds.
@@ -76,7 +76,7 @@ const Features = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className={`${feature.background} ${feature.textColor} ${feature.width} border border-[#1E2A56] p-6`}
+                className={`${feature.background} ${feature.textColor} ${feature.width} border border-[#1E2A56] p-6 dark:border-[#f5f0ea]/30`}
               >
                 <h3 className="text-lg font-bold sm:text-xl lg:text-2xl">
                   {feature.title}

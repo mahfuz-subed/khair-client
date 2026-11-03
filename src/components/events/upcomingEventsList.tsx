@@ -31,9 +31,9 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
       sd.category.toLowerCase().includes(value.toLowerCase()),
   );
   return (
-    <div className="min-h-screen bg-[#f5f0ea] px-4 py-12 text-[#1E2A56] sm:px-8">
+    <div className="min-h-screen bg-[#f5f0ea] px-4 py-12 text-[#1E2A56] dark:bg-[#171923] dark:text-[#f5f0ea] sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 border-b border-[#1E2A56]/20 pb-8">
+        <div className="mb-10 border-b border-[#1E2A56]/20 pb-8 dark:border-[#f5f0ea]/20">
           <p className="mb-3 text-sm font-semibold uppercase">
             Be Part of Something Good
           </p>
@@ -44,7 +44,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
                 Upcoming Events
               </h1>
 
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#1E2A56]/70 sm:text-base">
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#1E2A56]/70 dark:text-[#f5f0ea]/70 sm:text-base">
                 Discover meaningful community events, connect with people, and
                 make a positive difference together.
               </p>
@@ -60,7 +60,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
             name="search"
             placeholder="Search events or categories..."
             onChange={handleSearch}
-            className="h-12 w-full border border-[#1E2A56] bg-white px-4 text-sm text-[#1E2A56] outline-none focus:ring-1 focus:ring-[#1E2A56]"
+            className="h-12 w-full border border-[#1E2A56] bg-white px-4 text-sm text-[#1E2A56] outline-none focus:ring-1 focus:ring-[#1E2A56] dark:border-[#f5f0ea]/40 dark:bg-[#222630] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/50 dark:focus:ring-[#f5f0ea]"
           />
         </div>
 
@@ -69,10 +69,10 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
             <Button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`border border-[#1E2A56] px-5 py-2 text-sm font-semibold transition-colors ${
+              className={`border border-[#1E2A56] px-5 py-2 text-sm font-semibold transition-colors dark:border-[#f5f0ea]/50 ${
                 selectedCategory === category
-                  ? "bg-[#1E2A56] text-[#f5f0ea]"
-                  : "bg-transparent text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
+                  ? "bg-[#1E2A56] text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]"
+                  : "bg-transparent text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
               }`}
             >
               {category}
@@ -84,7 +84,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
           {searchedData.map((fd: EventItem) => (
             <div
               key={fd._id}
-              className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 sm:p-5"
+              className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 text-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#222630] dark:text-[#f5f0ea] sm:p-5"
             >
               {fd.imageUrl && (
                 <Image
@@ -97,7 +97,7 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
               )}
 
               {fd.organizer && (
-                <span className="mt-4 inline-block w-full bg-[#1E2A56] px-3 py-2 text-xs font-semibold text-[#f5f0ea]">
+                <span className="mt-4 inline-block w-full bg-[#1E2A56] px-3 py-2 text-xs font-semibold text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]">
                   Organized by {fd.organizer}
                 </span>
               )}
@@ -116,14 +116,14 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
                 <p>{fd.location}</p>
               </div>
 
-              <p className="mt-4 text-sm leading-relaxed text-[#1E2A56]/75">
+              <p className="mt-4 text-sm leading-relaxed text-[#1E2A56]/75 dark:text-[#f5f0ea]/75">
                 {fd.description}
               </p>
 
               <div className="mt-auto pt-8">
                 <Link
                   href={`/eventDetails/${fd._id}`}
-                  className="inline-block bg-[#1E2A56] px-7 py-4 font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72]"
+                  className="inline-block bg-[#1E2A56] px-7 py-4 font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72] dark:bg-[#f5f0ea] dark:text-[#171923] dark:hover:bg-[#ded8d0]"
                 >
                   View Details
                 </Link>

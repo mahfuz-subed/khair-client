@@ -25,7 +25,7 @@ const JoinedEventsPage = async () => {
   );
   const data = await res.json();
   return (
-    <div className="min-h-screen bg-[#f5f0ea] px-4 py-12 text-[#1E2A56] sm:px-8">
+    <div className="min-h-screen bg-[#f5f0ea] px-4 py-12 text-[#1E2A56] dark:bg-[#171923] dark:text-[#f5f0ea] sm:px-8">
       <div className="mx-auto mb-10 w-[90%] text-center">
         <h1 className="text-3xl font-bold sm:text-4xl">My Joined Events</h1>
 
@@ -39,7 +39,7 @@ const JoinedEventsPage = async () => {
         {data.map((event: IEvent) => (
           <div
             key={event._id}
-            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-3"
+            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-3 dark:border-[#f5f0ea]/30 dark:bg-[#222630]"
           >
             {event.imageUrl && (
               <Image
@@ -71,7 +71,7 @@ const JoinedEventsPage = async () => {
             <div className="mt-5">
               <Link
                 href={`/eventDetails/${event._id}`}
-                className="inline-block bg-[#1E2A56] px-4 py-2.5 text-sm font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72]"
+                className="inline-block bg-[#1E2A56] px-4 py-2.5 text-sm font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72] dark:bg-[#f5f0ea] dark:text-[#1E2A56] dark:hover:bg-[#ded8d0]"
               >
                 View Details
               </Link>
@@ -81,7 +81,7 @@ const JoinedEventsPage = async () => {
       </div>
 
       {data.length === 0 && (
-        <p className="mt-12 text-center text-[#1E2A56]/70">
+        <p className="mt-12 text-center text-[#1E2A56]/70 dark:text-[#f5f0ea]/70">
           You haven't joined any events yet. Explore upcoming events and become
           part of something meaningful!
         </p>

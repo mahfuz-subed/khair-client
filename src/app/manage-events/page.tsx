@@ -18,8 +18,8 @@ const ManageEvents = async () => {
   const eventData = await res.json();
   console.log(eventData);
   return (
-    <div>
-      <div className="mx-auto mt-12 w-[90%] text-center text-[#1E2A56]">
+    <div className="min-h-screen bg-[#f5f0ea] pb-12 dark:bg-[#171923]">
+      <div className="mx-auto mt-12 w-[90%] text-center text-[#1E2A56] dark:text-[#f5f0ea]">
         <h1 className="text-3xl font-bold sm:text-4xl">Manage Your Events</h1>
 
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed opacity-75 sm:text-base">
@@ -32,7 +32,7 @@ const ManageEvents = async () => {
         {eventData.map((fd: EventItem) => (
           <div
             key={fd._id}
-            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-3 text-[#1E2A56]"
+            className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-3 text-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#222630] dark:text-[#f5f0ea]"
           >
             {fd.imageUrl && (
               <Image
@@ -45,7 +45,7 @@ const ManageEvents = async () => {
             )}
 
             {fd.organizer && (
-              <span className="mt-3 inline-block self-start bg-[#1E2A56] px-3 py-1.5 text-xs font-semibold text-[#f5f0ea]">
+              <span className="mt-3 inline-block self-start bg-[#1E2A56] px-3 py-1.5 text-xs font-semibold text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#1E2A56]">
                 Organized by {fd.organizer}
               </span>
             )}
@@ -70,7 +70,7 @@ const ManageEvents = async () => {
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <Link
                 href={`/eventDetails/${fd._id}`}
-                className="bg-[#1E2A56] px-4 py-2.5 text-sm font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72]"
+                className="bg-[#1E2A56] px-4 py-2.5 text-sm font-semibold text-[#f5f0ea] transition-colors hover:bg-[#293b72] dark:bg-[#f5f0ea] dark:text-[#1E2A56] dark:hover:bg-[#ded8d0]"
               >
                 View Details
               </Link>

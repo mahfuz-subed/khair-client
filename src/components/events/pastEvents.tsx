@@ -2,14 +2,14 @@ import { EventItem } from "@/app/upcoming-events/page";
 import Image from "next/image";
 import React from "react";
 
-const pastEvents = ({ data }: { data: EventItem[] }) => {
+const PastEventsComp = ({ data }: { data: EventItem[] }) => {
   return (
-    <section className="bg-[#1E2A56] px-6 py-14 sm:py-20">
+    <section className="bg-[#1E2A56] px-6 py-14 dark:bg-[#171923] sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <h2 className="text-4xl font-bold text-[#f5f0ea] sm:text-5xl">
             Events That Made a{" "}
-            <span className="inline-block bg-[#f5f0ea] px-2 text-[#1E2A56]">
+            <span className="inline-block bg-[#f5f0ea] px-2 text-[#1E2A56] dark:bg-[#222630] dark:text-[#f5f0ea]">
               Difference.
             </span>
           </h2>
@@ -28,7 +28,7 @@ const pastEvents = ({ data }: { data: EventItem[] }) => {
           {data.map((fd: EventItem) => (
             <div
               key={fd._id}
-              className="flex flex-col bg-[#f5f0ea] text-[#1E2A56]"
+              className="flex flex-col bg-[#f5f0ea] text-[#1E2A56] dark:bg-[#222630] dark:text-[#f5f0ea]"
             >
               {fd.imageUrl && (
                 <Image
@@ -41,7 +41,7 @@ const pastEvents = ({ data }: { data: EventItem[] }) => {
               )}
 
               <div className="p-4 sm:p-5">
-                <span className="inline-block bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea]">
+                <span className="inline-block bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]">
                   Completed
                 </span>
 
@@ -76,4 +76,4 @@ const pastEvents = ({ data }: { data: EventItem[] }) => {
   );
 };
 
-export default pastEvents;
+export default PastEventsComp;

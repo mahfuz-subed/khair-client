@@ -4,7 +4,7 @@ import "./globals.css";
 import Nav from "@/components/shared/nav";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/shared/footer";
-
+import { ThemeProvider } from "next-themes";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,13 +24,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#f5f0ea]">
-        <Nav />
-        <main>{children}</main>
-        <Footer />
-        <Toaster position="top-right" reverseOrder={false} />
+      <body className="min-h-full flex flex-col bg-[#f5f0ea] dark:bg-[#171923]">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+          <Toaster position="top-right" reverseOrder={false} />
+        </ThemeProvider>
       </body>
     </html>
   );

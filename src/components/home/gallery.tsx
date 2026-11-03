@@ -41,12 +41,12 @@ const Gallery = async () => {
     },
   ];
   return (
-    <section className="bg-[#1E2A56] px-6 py-14 sm:py-20">
+    <section className="bg-[#1E2A56] px-6 py-14 dark:bg-[#222630] sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <h2 className="text-4xl font-bold text-[#f5f0ea] sm:text-5xl">
             Ramadan Moments from Across{" "}
-            <span className="inline-block bg-[#f5f0ea] px-2 text-[#1E2A56]">
+            <span className="inline-block bg-[#f5f0ea] px-2 text-[#1E2A56] dark:bg-[#171923] dark:text-[#f5f0ea]">
               Bangladesh.
             </span>
           </h2>
@@ -59,7 +59,10 @@ const Gallery = async () => {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {photos.map((photo) => (
-            <div key={photo.image} className="bg-[#f5f0ea] text-[#1E2A56]">
+            <div
+              key={photo.image}
+              className="bg-[#f5f0ea] text-[#1E2A56] dark:bg-[#171923] dark:text-[#f5f0ea]"
+            >
               <Image
                 src={photo.image}
                 alt={photo.alt}

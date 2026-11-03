@@ -1,4 +1,5 @@
 import React from "react";
+import PastEventsComp from "@/components/events/pastEvents";
 export interface EventItem {
   _id: string;
   title: string;
@@ -14,7 +15,7 @@ const PastEvents = async () => {
   const data = await res.json();
   return (
     <div>
-      <PastEvents data={data} />
+      <PastEventsComp data={data} />
     </div>
   );
 };

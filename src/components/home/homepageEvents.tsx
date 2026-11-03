@@ -18,17 +18,17 @@ const HomepageEvents = async () => {
 
   return (
     <div>
-      <section className="bg-white px-6 py-14 sm:py-20">
+      <section className="bg-white px-6 py-14 dark:bg-[#171923] sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl">
-            <h2 className="text-4xl font-bold text-[#1E2A56] sm:text-5xl">
+            <h2 className="text-4xl font-bold text-[#1E2A56] dark:text-[#f5f0ea] sm:text-5xl">
               Upcoming Events Waiting for{" "}
-              <span className="inline-block bg-[#1E2A56] px-2 text-[#f5f0ea]">
+              <span className="inline-block bg-[#1E2A56] px-2 text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]">
                 You.
               </span>
             </h2>
 
-            <p className="mt-6 text-lg leading-relaxed text-[#1E2A56]/80">
+            <p className="mt-6 text-lg leading-relaxed text-[#1E2A56]/80 dark:text-[#f5f0ea]/80">
               Browse the latest community events across Bangladesh, from iftar
               drives to Eid campaigns, and find one where your help makes a
               difference.
@@ -36,7 +36,7 @@ const HomepageEvents = async () => {
           </div>
 
           {events.length === 0 ? (
-            <p className="mt-10 text-[#1E2A56]">
+            <p className="mt-10 text-[#1E2A56] dark:text-[#f5f0ea]">
               No upcoming events right now. Please check back soon!
             </p>
           ) : (
@@ -44,7 +44,7 @@ const HomepageEvents = async () => {
               {events.map((event) => (
                 <div
                   key={event._id}
-                  className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 text-[#1E2A56] sm:p-6"
+                  className="flex flex-col border border-[#1E2A56] bg-[#f5f0ea] p-4 text-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#222630] dark:text-[#f5f0ea] sm:p-6"
                 >
                   {event.imageUrl && (
                     <Image
@@ -57,7 +57,7 @@ const HomepageEvents = async () => {
                   )}
 
                   {event.organizer && (
-                    <span className="mt-4 inline-block bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea]">
+                    <span className="mt-4 inline-block bg-[#1E2A56] px-3 py-1 text-xs font-semibold text-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#171923]">
                       Organized by {event.organizer}
                     </span>
                   )}
@@ -82,7 +82,7 @@ const HomepageEvents = async () => {
                   <div className="mt-auto pt-6">
                     <Link
                       href={`/eventDetails/${event._id}`}
-                      className="inline-block bg-[#1E2A56] px-6 py-3 font-semibold text-[#f5f0ea] hover:bg-[#16204a]"
+                      className="inline-block bg-[#1E2A56] px-6 py-3 font-semibold text-[#f5f0ea] hover:bg-[#16204a] dark:bg-[#f5f0ea] dark:text-[#171923] dark:hover:bg-[#ded8d0]"
                     >
                       View Details
                     </Link>
@@ -95,7 +95,7 @@ const HomepageEvents = async () => {
           <div className="mt-10">
             <Link
               href="/upcoming-events"
-              className="inline-block border border-[#1E2A56] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
+              className="inline-block border border-[#1E2A56] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:border-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
             >
               View All Events
             </Link>
