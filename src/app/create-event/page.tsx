@@ -55,7 +55,7 @@ const CreateEventsPage = () => {
       ...data,
       createdBy: user?.email,
     };
-    const res = await fetch(`https://khair-server.vercel.app/add-event`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/add-event`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

@@ -17,13 +17,16 @@ const JoinEventButton = ({ event }: { event: EventItem }) => {
   console.log(eventData);
 
   const handleJoin = async () => {
-    const res = await fetch(`https://khair-server.vercel.app/joined-events`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/joined-events`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(eventData),
       },
-      body: JSON.stringify(eventData),
-    });
+    );
     const joinedEventData = await res.json();
     console.log("joined", joinedEventData);
     if (joinedEventData.acknowledged) {

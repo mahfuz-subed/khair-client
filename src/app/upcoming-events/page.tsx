@@ -1,4 +1,4 @@
-import UpcomingEventsList from "@/components/upcoming-events/upcomingEventsList";
+import UpcomingEventsList from "@/components/events/upcomingEventsList";
 export interface EventItem {
   _id: string;
   title: string;
@@ -10,7 +10,7 @@ export interface EventItem {
   category: string;
 }
 const UpcomingEvents = async () => {
-  const res = await fetch(`https://khair-server.vercel.app/upcoming-events`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upcoming-events`);
   const data = await res.json();
 
   return (

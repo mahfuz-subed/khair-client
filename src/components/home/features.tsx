@@ -36,7 +36,7 @@ const Features = () => {
       title: "Bring Communities Together",
       description:
         "Connect with local youth clubs, volunteer groups, and people who share the same passion for helping others.",
-      image: "/feature/community.jpg",
+      image: "/feature/community2.jpg",
       alt: "Members of a youth club standing together",
       background: "bg-white",
       textColor: "text-[#1E2A56]",

@@ -12,7 +12,9 @@ const ManageEvents = async () => {
   });
   const email = session?.user?.email;
   console.log("email", email);
-  const res = await fetch(`https://khair-server.vercel.app/my-events/${email}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/my-events/${email}`,
+  );
   const eventData = await res.json();
   console.log(eventData);
   return (

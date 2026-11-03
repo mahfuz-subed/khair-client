@@ -15,6 +15,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { label: "Upcoming Events", href: "/upcoming-events" },
+  { label: "Past Events", href: "/past-events" },
+];
 
 const Nav = () => {
   const { data: session } = authClient.useSession();
@@ -23,10 +29,11 @@ const Nav = () => {
   const handleLogout = () => {
     authClient.signOut();
   };
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-50 border-b border-[#1E2A56] bg-[#f5f0ea]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <div className="flex items-center gap-4 sm:gap-8">
+        <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/mainlogo.png"
@@ -39,13 +46,21 @@ const Nav = () => {
             </span>
           </Link>
 
-          <Link
-            href="/upcoming-events"
-            className="inline-flex items-center gap-3 border border-[#1E2A56] px-6 py-3 text-sm font-semibold text-[#1E2A56] transition-colors hover:bg-[#1E2A56] hover:text-[#f5f0ea] md:text-base"
-          >
-            <span>Explore Upcoming Events</span>
-            <ArrowRight size={18} />
-          </Link>
+          <div className="hidden items-center gap-6 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`border-b-2 pb-1 font-semibold text-[#1E2A56] ${
+                  pathname === link.href
+                    ? "border-[#1E2A56]"
+                    : "border-transparent hover:border-[#1E2A56]/50"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -116,6 +131,24 @@ const Nav = () => {
               Login
             </Link>
           )}
+        </div>
+      </div>
+
+      <div className="border-t border-[#1E2A56]/20 md:hidden">
+        <div className="mx-auto flex max-w-6xl items-center gap-6 px-6 py-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`border-b-2 pb-1 text-sm font-semibold text-[#1E2A56] ${
+                pathname === link.href
+                  ? "border-[#1E2A56]"
+                  : "border-transparent hover:border-[#1E2A56]/50"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </header>

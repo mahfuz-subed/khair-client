@@ -29,7 +29,7 @@ const DeleteButton = ({ fd }: { fd: IEvent }) => {
   const router = useRouter();
   const handleDelete = async () => {
     const res = await fetch(
-      `https://khair-server.vercel.app/my-events/${fd._id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/my-events/${fd._id}`,
       {
         method: "DELETE",
       },
