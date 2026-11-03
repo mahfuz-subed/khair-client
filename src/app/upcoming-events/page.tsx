@@ -1,4 +1,5 @@
 import UpcomingEventsList from "@/components/events/upcomingEventsList";
+
 export interface EventItem {
   _id: string;
   title: string;

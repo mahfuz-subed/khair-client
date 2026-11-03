@@ -26,6 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import GetTokenFromClient from "@/lib/getTokenFromClient";
 
 const eventTypes = [
   { label: "Select Type", value: null },
@@ -50,7 +51,7 @@ const CreateEventsPage = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-
+    const token = await GetTokenFromClient();
     const eventData = {
       ...data,
       createdBy: user?.email,
@@ -59,6 +60,7 @@ const CreateEventsPage = () => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(eventData),
       cache: "no-store",

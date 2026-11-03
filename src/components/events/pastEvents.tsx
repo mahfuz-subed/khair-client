@@ -1,6 +1,5 @@
 import { EventItem } from "@/app/upcoming-events/page";
 import Image from "next/image";
-import React from "react";
 
 const PastEventsComp = ({ data }: { data: EventItem[] }) => {
   return (

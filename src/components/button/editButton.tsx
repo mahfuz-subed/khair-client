@@ -20,11 +20,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldLegend,
@@ -45,6 +42,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { AlertDialogCancel } from "../ui/alert-dialog";
+import GetTokenFromClient from "@/lib/getTokenFromClient";
 
 const eventTypes = [
   { label: "Select Type", value: null },
@@ -73,6 +71,7 @@ const EditButton = ({ fd }: { fd: IEvent }) => {
       ...data,
       createdBy: user?.email,
     };
+    const token = await GetTokenFromClient();
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/my-events/${fd._id}`,
@@ -80,6 +79,7 @@ const EditButton = ({ fd }: { fd: IEvent }) => {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
+          authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(eventData),
       },

@@ -5,15 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import EditButton from "@/components/button/editButton";
 import DeleteButton from "@/components/button/deleteButton";
+import GetTokenFromServer from "@/lib/getTokenFromServer";
 
 const ManageEvents = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
   const email = session?.user?.email;
-  console.log("email", email);
+  const token = await GetTokenFromServer();
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/my-events/${email}`,
+    {
+      headers: { authorization: `Bearer ${token}` },
+    },
   );
   const eventData = await res.json();
   console.log(eventData);

@@ -1,8 +1,9 @@
 import { auth } from "@/lib/auth";
+import GetTokenFromServer from "@/lib/getTokenFromServer";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 interface IEvent {
   _id: string;
   title: string;
@@ -20,8 +21,14 @@ const JoinedEventsPage = async () => {
   });
 
   const email = session?.user?.email;
+  const token = await GetTokenFromServer();
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/my-joined-events/${email}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
   );
   const data = await res.json();
   return (

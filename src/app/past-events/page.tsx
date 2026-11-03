@@ -1,5 +1,5 @@
-import React from "react";
 import PastEventsComp from "@/components/events/pastEvents";
+
 export interface EventItem {
   _id: string;
   title: string;

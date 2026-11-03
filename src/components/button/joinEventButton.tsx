@@ -2,6 +2,7 @@
 
 import { EventItem } from "@/app/upcoming-events/page";
 import { authClient } from "@/lib/auth-client";
+import GetTokenFromClient from "@/lib/getTokenFromClient";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -17,12 +18,14 @@ const JoinEventButton = ({ event }: { event: EventItem }) => {
   console.log(eventData);
 
   const handleJoin = async () => {
+    const token = await GetTokenFromClient();
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/joined-events`,
       {
         method: "POST",
         headers: {
           "Content-type": "application/json",
+          authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(eventData),
       },

@@ -1,6 +1,7 @@
 import JoinEventButton from "@/components/button/joinEventButton";
+
 import Image from "next/image";
-import Link from "next/link";
+
 type EventItem = {
   _id: string;
   title: string;
@@ -18,6 +19,7 @@ const EventDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/event/${id}`);
   const data = await res.json();
   const event: EventItem = data;

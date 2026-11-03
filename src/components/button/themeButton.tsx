@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { useTheme } from "next-themes";
 const ThemeButton = () => {
   const { theme, setTheme } = useTheme();
-  console.log("Current theme:", theme);
+
   return (
     <div>
       <Button

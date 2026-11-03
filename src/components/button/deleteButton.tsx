@@ -24,14 +24,17 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
+import GetTokenFromClient from "@/lib/getTokenFromClient";
 
 const DeleteButton = ({ fd }: { fd: IEvent }) => {
   const router = useRouter();
   const handleDelete = async () => {
+    const token = await GetTokenFromClient();
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/my-events/${fd._id}`,
       {
         method: "DELETE",
+        headers: { authorization: `Bearer ${token}` },
       },
     );
     const data = await res.json();
