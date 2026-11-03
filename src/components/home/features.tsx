@@ -76,7 +76,10 @@ const Features = () => {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className={`${feature.background} ${feature.textColor} ${feature.width} border border-[#1E2A56] p-6 dark:border-[#f5f0ea]/30`}
+                className={`${feature.background} ${feature.textColor} ${feature.width} 
+  border border-[#1E2A56] p-6
+  dark:!bg-[#171923] dark:!text-[#f5f0ea]
+  dark:border-[#f5f0ea]/30`}
               >
                 <h3 className="text-lg font-bold sm:text-xl lg:text-2xl">
                   {feature.title}

@@ -13,8 +13,12 @@ const Banner = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-[#f5f0ea] mt-6 max-w-2xl leading-relaxed">
-            Discover meaningful events, lend a helping hand, and become part of
-            something good. Together, we can make a difference.
+            Discover meaningful events in this{" "}
+            <span className="bg-[#f5f0ea] font-bold text-[#1E2A56] dark:bg-[#222630] dark:text-[#f5f0ea] px-2">
+              RAMADAN
+            </span>
+            , lend a helping hand, and become part of something good. Together,
+            we can make a difference.
           </p>
 
           <div className="flex items-center gap-6 mt-10">
