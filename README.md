@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Khair
 
-## Getting Started
+### Goodness Begins When We Come Together.
 
-First, run the development server:
+Khair is a community event management platform focusing he blessed month of Ramadan that helps people discover create, and participate in initiatives that make a positive difference in their communities.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The platform brings organizers and volunteers together around meaningful activities such as food distribution clothing distribution, community support, and other charitable events.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Explore upcoming events --- browse community events and view their details.
+- Event details --- see an event's date, location organizer, description, and image.
+- Create events --- authenticated users can organize and publish community events.
+- Manage your events --- organizers can view, edit, and delete events they created.
+- Join events --- authenticated users can join events and view the events they have joined.
+- Authentication --- email sign-up/sign-in and Google sign-in using Better Auth.
+- Responsive design --- layouts for different screen sizes.
+- Light and dark themes --- switch between the two appearance modes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Live Website Link:
 
-## Learn More
+[Khair] (https://khair-client.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- shadcn-style UI components
+- next-themes
+- Better Auth client
 
-## Deploy on Vercel
+### Backend and Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js
+- Express.js
+- MongoDB
+- Better Auth
