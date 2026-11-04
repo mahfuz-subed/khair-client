@@ -118,7 +118,7 @@ const CreateEventsPage = () => {
                       name="title"
                       placeholder="e.g. Free Iftaar Distribution"
                       required
-                      className="border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
+                      className="border-[#1E2A56]/40 bg-white rounded-none py-5 text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                     />
                   </Field>
 
@@ -134,7 +134,7 @@ const CreateEventsPage = () => {
                       name="location"
                       placeholder="e.g. Sylhet"
                       required
-                      className="border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
+                      className="border-[#1E2A56]/40 rounded-none py-5  bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                     />
                   </Field>
 
@@ -149,7 +149,7 @@ const CreateEventsPage = () => {
                     <Select items={eventTypes} name="category">
                       <SelectTrigger
                         id="category"
-                        className="border-[#1E2A56]/40 bg-white text-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea]"
+                        className="border-[#1E2A56]/40 bg-white rounded-none py-5  text-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea]"
                       >
                         <SelectValue />
                       </SelectTrigger>
@@ -183,7 +183,7 @@ const CreateEventsPage = () => {
                       type="url"
                       placeholder="Paste your image URL"
                       required
-                      className="border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
+                      className="border-[#1E2A56]/40 rounded-none py-5  bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                     />
                   </Field>
 
@@ -200,7 +200,7 @@ const CreateEventsPage = () => {
                       type="text"
                       required
                       placeholder="e.g. Sylhet Youth Club"
-                      className="border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
+                      className="border-[#1E2A56]/40 rounded-none py-5  bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                     />
                   </Field>
 
@@ -217,7 +217,7 @@ const CreateEventsPage = () => {
                       type="date"
                       min={today}
                       required
-                      className="border-[#1E2A56]/40 bg-white text-[#1E2A56] [color-scheme:light] focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:[color-scheme:dark] dark:focus-visible:ring-[#f5f0ea]"
+                      className="border-[#1E2A56]/40 rounded-none py-5  bg-white text-[#1E2A56] [color-scheme:light] focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:[color-scheme:dark] dark:focus-visible:ring-[#f5f0ea]"
                     />
                   </Field>
                 </FieldGroup>
@@ -245,7 +245,7 @@ const CreateEventsPage = () => {
                     id="description"
                     placeholder="Explain the purpose and details of your event..."
                     name="description"
-                    className="min-h-32 resize-none border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
+                    className="min-h-32 resize-none rounded-none border-[#1E2A56]/40 bg-white text-[#1E2A56] placeholder:text-[#1E2A56]/40 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/30 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                   />
                 </Field>
               </FieldSet>
@@ -256,7 +256,7 @@ const CreateEventsPage = () => {
               >
                 <Button
                   type="submit"
-                  className="border border-[#1E2A56] bg-[#1E2A56] px-7 py-3 font-semibold text-[#f5f0ea] hover:bg-[#293b72] dark:border-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#1E2A56] dark:hover:bg-[#ded8d0]"
+                  className="border border-[#1E2A56] rounded-none bg-[#1E2A56] px-7 py-5 font-semibold text-[#f5f0ea] hover:bg-[#293b72] dark:border-[#f5f0ea] dark:bg-[#f5f0ea] dark:text-[#1E2A56] dark:hover:bg-[#ded8d0]"
                 >
                   Create Event
                 </Button>
@@ -264,7 +264,7 @@ const CreateEventsPage = () => {
                 <Button
                   variant="outline"
                   type="button"
-                  className="border border-[#1E2A56] bg-transparent px-7 py-3 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:border-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#1E2A56]"
+                  className="border border-[#1E2A56] rounded-none bg-transparent px-7 py-5 font-semibold text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:border-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#1E2A56]"
                 >
                   Cancel
                 </Button>

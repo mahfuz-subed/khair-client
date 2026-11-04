@@ -80,6 +80,15 @@ const UpcomingEventsList = ({ data }: { data: EventItem[] }) => {
           ))}
         </div>
 
+        {filteredData.length === 0 && (
+          <p className="mt-10 text-[#1E2A56] dark:text-[#f5f0ea]">
+            No upcoming events at the moment.{" "}
+            <Link href="/create-event" className="hover:underline">
+              Create an Event?
+            </Link>
+          </p>
+        )}
+
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {searchedData.map((fd: EventItem) => (
             <div

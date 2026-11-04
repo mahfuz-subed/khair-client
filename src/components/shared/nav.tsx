@@ -22,6 +22,7 @@ import ThemeButton from "../button/themeButton";
 const navLinks = [
   { label: "Upcoming Events", href: "/upcoming-events" },
   { label: "Past Events", href: "/past-events" },
+  { label: "Community Champions", href: "/community-champions" },
 ];
 
 const Nav = () => {
