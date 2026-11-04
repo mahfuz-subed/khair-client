@@ -20,7 +20,7 @@ const ManageEvents = async () => {
     },
   );
   const eventData = await res.json();
-  console.log(eventData);
+
   return (
     <div className="min-h-screen bg-[#f5f0ea] pb-12 dark:bg-[#171923]">
       <div className="mx-auto mt-12 w-[90%] text-center text-[#1E2A56] dark:text-[#f5f0ea]">
@@ -31,12 +31,6 @@ const ManageEvents = async () => {
           you've created, update their details, and continue spreading goodness.
         </p>
       </div>
-
-      {eventData.length === 0 && (
-        <p className="mt-10 text-[#1E2A56] dark:text-[#f5f0ea]">
-          No past events to show yet.
-        </p>
-      )}
 
       <div className="mx-auto mt-10 grid w-[90%] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {eventData.map((fd: EventItem) => (
