@@ -10,7 +10,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   Popover,
   PopoverContent,
@@ -126,6 +126,13 @@ const Nav = () => {
                       className="px-3 py-2 text-sm font-medium text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
                     >
                       Joined events
+                    </Link>
+                    <Link
+                      onClick={handleLogout}
+                      href="/sign-in"
+                      className="px-3 py-2 text-sm font-medium text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
+                    >
+                      Logout
                     </Link>
                   </div>
                 </PopoverContent>
