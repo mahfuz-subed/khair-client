@@ -32,6 +32,12 @@ const ManageEvents = async () => {
         </p>
       </div>
 
+      {eventData.length === 0 && (
+        <p className="mt-10 text-[#1E2A56] dark:text-[#f5f0ea]">
+          No past events to show yet.
+        </p>
+      )}
+
       <div className="mx-auto mt-10 grid w-[90%] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {eventData.map((fd: EventItem) => (
           <div

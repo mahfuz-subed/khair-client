@@ -11,6 +11,9 @@ const CommunityChampions = async () => {
   const res = await fetch(`http://localhost:5000/community-champions`);
   const data = await res.json();
   console.log(data);
+  const topThree = data.slice(0, 3);
+  const otherChampions = data.slice(3);
+  console.log(otherChampions);
   return (
     <section className="bg-[#f5f0ea] px-4 py-14 text-[#1E2A56] dark:bg-[#171923] dark:text-[#f5f0ea] sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
