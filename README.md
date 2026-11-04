@@ -13,6 +13,7 @@ The platform brings organizers and volunteers together around meaningful activit
 - Create events --- authenticated users can organize and publish community events.
 - Manage your events --- organizers can view, edit, and delete events they created.
 - Join events --- authenticated users can join events and view the events they have joined.
+- Profile --- authenticated users can update their name and profile picture.
 - Authentication --- email sign-up/sign-in and Google sign-in using Better Auth.
 - Responsive design --- layouts for different screen sizes.
 - Light and dark themes --- switch between the two appearance modes.
