@@ -102,6 +102,12 @@ const Nav = () => {
 
                   <div className="flex flex-col">
                     <Link
+                      href="/profile"
+                      className="px-3 py-2 text-sm font-medium text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
+                    >
+                      Profile
+                    </Link>
+                    <Link
                       href="/create-event"
                       className="px-3 py-2 text-sm font-medium text-[#1E2A56] hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#171923]"
                     >

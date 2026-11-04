@@ -63,14 +63,11 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   };
 
   return (
-    <Card {...props} className="border-[#1E2A56] shadow-lg">
+    <Card {...props} className="shadow-lg border-none rounded-none">
       <CardHeader className="text-center space-y-2">
         <CardTitle className="text-2xl font-bold text-[#1E2A56]">
           Create an account
         </CardTitle>
-        <CardDescription className="text-[#1E2A56]">
-          Join Khair and be part of something meaningful.
-        </CardDescription>
       </CardHeader>
 
       <CardContent>
@@ -86,7 +83,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 type="text"
                 placeholder="John Doe"
                 required
-                className="border-[#1E2A56] text-[#1E2A56] placeholder:text-[#1E2A56]/50"
+                className="border-[#1E2A56] rounded-none  text-[#1E2A56] placeholder:text-[#1E2A56]/50"
               />
             </Field>
 
@@ -100,7 +97,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 type="email"
                 placeholder="m@example.com"
                 required
-                className="border-[#1E2A56] text-[#1E2A56] placeholder:text-[#1E2A56]/50"
+                className="border-[#1E2A56] rounded-none  text-[#1E2A56] placeholder:text-[#1E2A56]/50"
               />
             </Field>
 
@@ -114,7 +111,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 type="url"
                 placeholder="https://example.com/image.jpg"
                 required
-                className="border-[#1E2A56] text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56]"
+                className="border-[#1E2A56] rounded-none  text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56]"
               />
             </Field>
 
@@ -129,7 +126,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                 placeholder="Enter your password"
                 required
                 minLength={6}
-                className="border-[#1E2A56] text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56]"
+                className="border-[#1E2A56] rounded-none  text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56]"
               />
               <FieldDescription className="text-[#1E2A56]/75">
                 Must be at least 6 characters, with one uppercase and one
@@ -140,7 +137,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
             <Field>
               <Button
                 type="submit"
-                className="w-full bg-[#1E2A56] text-[#f5f0ea] transition duration-300 hover:bg-[#1E2A56]/90 hover:scale-[1.02]"
+                className="w-full rounded-none  bg-[#1E2A56] text-[#f5f0ea] transition duration-300 hover:bg-[#1E2A56]/90 hover:scale-[1.02]"
               >
                 Create Account
               </Button>
@@ -154,7 +151,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
                   onClick={handleGoogleSignIn}
                   variant="outline"
                   type="button"
-                  className="w-full border-[#1E2A56] text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
+                  className="w-full rounded-none  border-[#1E2A56] text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
                 >
                   Sign up with Google
                 </Button>

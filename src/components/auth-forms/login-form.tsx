@@ -49,22 +49,25 @@ export function LoginForm({}: React.ComponentProps<"div">) {
   };
   return (
     <div className="flex flex-col gap-6">
-      <Card className="border-[#1E2A56] shadow-lg bg-[#f5f0ea] text-[#1E2A56]">
-        <CardHeader className="text-center space-y-2 text-[#1E2A56]">
-          <CardTitle className="text-2xl font-bold text-[#1E2A56]">
+      <Card className="rounded-none bg-transparent p-3 shadow-none">
+        <CardHeader className="space-y-2 p-0 pb-6 text-center">
+          <CardTitle className="text-2xl font-bold text-[#1E2A56] dark:text-[#f5f0ea]">
             Welcome back!
           </CardTitle>
 
-          <CardDescription className="text-[#1E2A56]">
+          <CardDescription className="text-[#1E2A56]/70 dark:text-[#f5f0ea]/70">
             Sign in to continue making a difference with Khair.
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="text-[#1E2A56]">
+        <CardContent className="p-3">
           <form onSubmit={handleLogin}>
-            <FieldGroup>
-              <Field className="text-[#1E2A56]">
-                <FieldLabel htmlFor="email" className="text-[#1E2A56]">
+            <FieldGroup className="gap-5">
+              <Field>
+                <FieldLabel
+                  htmlFor="email"
+                  className="font-semibold text-[#1E2A56] dark:text-[#f5f0ea]"
+                >
                   Email
                 </FieldLabel>
 
@@ -74,12 +77,15 @@ export function LoginForm({}: React.ComponentProps<"div">) {
                   type="email"
                   placeholder="m@example.com"
                   required
-                  className="border-[#1E2A56] bg-[#f5f0ea] text-[#1E2A56] placeholder:text-[#1E2A56]/60 focus-visible:ring-[#1E2A56]"
+                  className="h-11 rounded-none border-[#1E2A56]/25 bg-[#f5f0ea]/50 text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/25 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                 />
               </Field>
 
-              <Field className="text-[#1E2A56]">
-                <FieldLabel htmlFor="password" className="text-[#1E2A56]">
+              <Field>
+                <FieldLabel
+                  htmlFor="password"
+                  className="font-semibold text-[#1E2A56] dark:text-[#f5f0ea]"
+                >
                   Password
                 </FieldLabel>
 
@@ -89,16 +95,14 @@ export function LoginForm({}: React.ComponentProps<"div">) {
                   type="password"
                   placeholder="Enter your password"
                   required
-                  className="border-[#1E2A56] bg-[#f5f0ea] text-[#1E2A56] placeholder:text-[#1E2A56]/60 focus-visible:ring-[#1E2A56]"
+                  className="h-11 rounded-none border-[#1E2A56]/25 bg-[#f5f0ea]/50 text-[#1E2A56] placeholder:text-[#1E2A56]/50 focus-visible:ring-[#1E2A56] dark:border-[#f5f0ea]/25 dark:bg-[#171923] dark:text-[#f5f0ea] dark:placeholder:text-[#f5f0ea]/40 dark:focus-visible:ring-[#f5f0ea]"
                 />
               </Field>
 
-              {/* Keep your existing Login button and Google button here */}
-
-              <Field>
+              <Field className="gap-3 pt-2">
                 <Button
                   type="submit"
-                  className="w-full bg-[#1E2A56] text-[#f5f0ea] transition duration-300 hover:bg-[#1E2A56]/90 hover:scale-[1.02]"
+                  className="h-11 w-full rounded-none bg-[#1E2A56] text-[#f5f0ea] transition duration-300 hover:bg-[#1E2A56]/85 dark:bg-[#f5f0ea] dark:text-[#1E2A56] dark:hover:bg-[#f5f0ea]/85"
                 >
                   Login
                 </Button>
@@ -107,17 +111,17 @@ export function LoginForm({}: React.ComponentProps<"div">) {
                   onClick={handleGoogleSignIn}
                   variant="outline"
                   type="button"
-                  className="w-full border-[#1E2A56] text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea]"
+                  className="h-11 w-full rounded-none border-[#1E2A56]/40 bg-transparent text-[#1E2A56] transition duration-300 hover:bg-[#1E2A56] hover:text-[#f5f0ea] dark:border-[#f5f0ea]/40 dark:text-[#f5f0ea] dark:hover:bg-[#f5f0ea] dark:hover:text-[#1E2A56]"
                 >
                   Login with Google
                 </Button>
               </Field>
 
-              <FieldDescription className="text-center text-[#1E2A56]">
-                Don&apos;t have an account?{" "}
+              <FieldDescription className="pt-2 text-center text-sm text-[#1E2A56]/70 dark:text-[#f5f0ea]/70">
+                Don't have an account?{" "}
                 <a
                   href="/sign-up"
-                  className="font-semibold text-[#1E2A56] underline underline-offset-4 hover:opacity-70"
+                  className="font-semibold text-[#1E2A56] underline underline-offset-4 hover:opacity-70 dark:text-[#f5f0ea]"
                 >
                   Sign up
                 </a>
