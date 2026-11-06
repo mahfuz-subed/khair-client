@@ -53,7 +53,7 @@ const JoinEventButton = ({ event }: { event: EventItem }) => {
         <button
           onClick={handleJoin}
           disabled={joined}
-          className="pointer-cursor w-full bg-[#f5f0ea] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="cursor-pointer w-full bg-[#f5f0ea] px-8 py-4 font-semibold text-[#1E2A56] hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
         >
           {joined ? "Joined" : "Join Event"}
         </button>
